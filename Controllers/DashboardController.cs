@@ -9,11 +9,11 @@ using dotnetCore_AdminmartUI.Models;
 
 namespace dotnetCore_AdminmartUI.Controllers
 {
-    public class PageController : Controller
+    public class DashboardController : Controller
     {
-        private readonly ILogger<PageController> _logger;
+        private readonly ILogger<DashboardController> _logger;
 
-        public PageController(ILogger<PageController> logger)
+        public DashboardController(ILogger<DashboardController> logger)
         {
             _logger = logger;
         }
