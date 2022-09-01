@@ -50,7 +50,7 @@ namespace dotnetCore_AdminmartUI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Page}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
             });
         }
     }

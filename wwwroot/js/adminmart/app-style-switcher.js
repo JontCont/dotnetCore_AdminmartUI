@@ -110,16 +110,53 @@ $(function () {
     };
     handlethemeview();
 
+    //****************************
+    /* Header position */
+    //****************************
+    function handlesetsidebartype() {
+        //let storage = window.localStorage;
+        //let otype = $("#main-wrapper").attr("data-sidebartype");
+        //var type = storage.getItem('setsidebartype');
+        //if (typeof (type) == 'string') {
+        //    $("#main-wrapper").attr("data-sidebartype", type);
+        //    storage.setItem('setsidebartype',type);
+        //}
+        $('#setsidebar-type').click(function () {
+            let storage = window.localStorage;
+            let text = $("#main-wrapper").attr("data-sidebartype");
+            if (text == "full") {
+                console.log("mini-sidebar");
+                $("#main-wrapper").attr("data-sidebartype", "mini-sidebar");
+                storage.setItem('setsidebartype', "mini-sidebar");
+            } else {
+                console.log("full");
+                $("#main-wrapper").attr("data-sidebartype", "full");
+                storage.setItem('setsidebartype', "full");
+            }
+        });
+    };
+    handlesetsidebartype();
+
     var setsidebartype = function () {
         var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
         if (width < 1170) {
             $("#main-wrapper").attr("data-sidebartype", "mini-sidebar");
             $("#main-wrapper").addClass("mini-sidebar");
+            
         } else {
-            $("#main-wrapper").attr("data-sidebartype", "full");
-            $("#main-wrapper").removeClass("mini-sidebar");
+            //handlesetsidebartype();
+            //$("#main-wrapper").attr("data-sidebartype", "full");
+            //$("#main-wrapper").removeClass("mini-sidebar");
+            let storage = window.localStorage;
+            let otype = $("#main-wrapper").attr("data-sidebartype");
+            var type = storage.getItem('setsidebartype');
+            if (typeof (type) == 'string' && otype != type) {
+                $("#main-wrapper").attr("data-sidebartype", type);
+                storage.setItem('setsidebartype', type);
+            }
         }
     };
     $(window).ready(setsidebartype);
     $(window).on("resize", setsidebartype);
+
 });
