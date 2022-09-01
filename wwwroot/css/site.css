@@ -1,5 +1,11 @@
-﻿@media (max-width: 767.98px) {
+﻿.table-responsive{
+    overflow-x: visible;
+}
+
+
+@media (max-width: 767.98px) {
     .d_nav__sm--none{
         display: none;
     }
 }
+
